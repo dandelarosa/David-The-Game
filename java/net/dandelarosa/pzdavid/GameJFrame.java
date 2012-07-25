@@ -19,12 +19,14 @@ public class GameJFrame extends JFrame implements Runnable {
   private static final long serialVersionUID = -3593812959821792463L;
 
   private RootGameController gameController;
+  private Input input;
 
   /**
    * Constructor
    */
   public GameJFrame(RootGameController gameController) {
     this.gameController = gameController;
+    this.input = gameController.getInputHandler();
     
     // Set window parameters
     setTitle(gameController.getGameTitle());
@@ -39,7 +41,7 @@ public class GameJFrame extends JFrame implements Runnable {
         (screenDimensions.height - this.getHeight()) / 2);
 
     // Have the GameController process key events
-    addKeyListener(gameController);
+    addKeyListener(input);
 
     // Start the game loop
     Thread gameThread = new Thread(this);
@@ -62,6 +64,8 @@ public class GameJFrame extends JFrame implements Runnable {
         // Send a call to redraw the scene
         repaint();
 
+        input.nextFrame();
+        
         // Wait until next frame
         // Waiting time = 1000ms / frames per second
         Thread.sleep(1000 / gameController.getFramerate());
