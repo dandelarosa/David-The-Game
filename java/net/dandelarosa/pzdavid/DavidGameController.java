@@ -12,6 +12,7 @@ public class DavidGameController implements RootGameController {
   public static final int SCREEN_HEIGHT = 400;
 
   private Input input = new Input();
+  private World currentWorld = new SampleWorld(input);
   
   @Override
   public String getGameTitle() {
@@ -30,7 +31,7 @@ public class DavidGameController implements RootGameController {
 
   @Override
   public int getFramerate() {
-    return 30;
+    return 60;
   }
   
   @Override
@@ -42,7 +43,7 @@ public class DavidGameController implements RootGameController {
    * Update the game state each frame
    */
   public void update() {
-    
+    currentWorld.update();
   }
 
   /**
@@ -53,5 +54,6 @@ public class DavidGameController implements RootGameController {
     // Draw the background image
     g.setColor(Color.WHITE);
     g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    currentWorld.paint(g);
   }
 }
