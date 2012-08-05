@@ -1,3 +1,6 @@
 [submodule "FlashPunk"]
 	path = FlashPunk
 	url = https://github.com/Draknek/FlashPunk.git
+[submodule "JavaPunk"]
+	path = JavaPunk
+	url = git@github.com:dandelarosa/JavaPunk.git
