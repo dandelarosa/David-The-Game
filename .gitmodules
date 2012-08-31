@@ -4,3 +4,6 @@
 [submodule "JavaPunk"]
 	path = JavaPunk
 	url = git@github.com:dandelarosa/JavaPunk.git
+[submodule "FakeFlash-Java"]
+	path = FakeFlash-Java
+	url = git@github.com:dandelarosa/FakeFlash-Java.git
